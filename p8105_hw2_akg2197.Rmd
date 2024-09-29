@@ -1,0 +1,7 @@
+---
+title: "p8105_hw2_akg2197"
+author: "Annie Gorman"
+date: "2024-09-29"
+output: HW2
+---
+## Problem 1

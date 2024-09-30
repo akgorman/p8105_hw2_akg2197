@@ -2,6 +2,11 @@
 title: "p8105_hw2_akg2197"
 author: "Annie Gorman"
 date: "2024-09-29"
-output: HW2
+output: github_document
 ---
+
 ## Problem 1
+
+## Problem 2
+library(readxl)
+X202309_Trash_Wheel_Collection_Data <- read_excel("~/Downloads/202309 Trash Wheel Collection Data.xlsx")

@@ -9,4 +9,6 @@ output: github_document
 
 ## Problem 2
 library(readxl)
-X202309_Trash_Wheel_Collection_Data <- read_excel("~/Downloads/202309 Trash Wheel Collection Data.xlsx")
+X202409_Trash_Wheel_Collection_Data <- read_excel("~/Downloads/202409 Trash Wheel Collection Data.xlsx")
+View(X202409_Trash_Wheel_Collection_Data)
+

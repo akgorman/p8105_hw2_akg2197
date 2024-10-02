@@ -39,6 +39,8 @@ gwynnda_df=gwynnda_df |>
 
 dplyr:::left_join.data.frame(trashwheel_df, proftrashwheel_df, gwynnda_df, by = "volume_cubic_yards")
 ```
+The dataset has `r nrow(df) observations. The total weight of trash was 
+```
 ## Problem 3 
 ```{r}
 bakers = read_csv ("~/Desktop/p8105_hw2_akg2197/gbb_datasets 2/bakers.csv", na =c("", "N/A", "Unknown", "UNKNOWN")) |>
@@ -70,6 +72,7 @@ write.csv(bakeoff_df, "bakeoff_clean_set.csv", row.names = FALSE)|>
 
 In the cleaning of my data, I have shown the series, bakers and their signature dishes, episode, and "show stoppers." Renaming bakers and bakes was necessary in merging the datasets. The dataset is `r nrow(bakeoff_df)` and `r ncol(bakeoff_df)`.
 
+```{r}
 star_baker_df = bakeoff_df |>
   filter(series >=5, results %in% c("STAR BAKER", "WINNER")) |>
   select(series, episode, baker)
@@ -77,4 +80,7 @@ star_baker_df = bakeoff_df |>
 head(star_baker_df)
 
 colnames(results)
+colnames(bakes)
+colnames(bakers)
 ```
+The predictable winner was Jo. Jo was the overall winner with no other surprises in seasons 5-10. 

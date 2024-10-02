@@ -37,6 +37,7 @@ gwynnda_df=gwynnda_df |>
   janitor::clean_names()|>
   drop_na(dumpster)
 
+dplyr:::left_join.data.frame(trashwheel_df, proftrashwheel_df, gwynnda_df, by = "volume_cubic_yards")
 ```
 ## Problem 3 
 

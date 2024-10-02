@@ -41,11 +41,11 @@ dplyr:::left_join.data.frame(trashwheel_df, proftrashwheel_df, gwynnda_df, by = 
 ```
 ## Problem 3 
 ```{r}
-bakers = read_csv ("~/Desktop/p8105_hw2_akg2197/gbb_datasets 2/bakers.csv") |>
+bakers = read_csv ("~/Desktop/p8105_hw2_akg2197/gbb_datasets 2/bakers.csv", na =c("", "N/A", "Unknown", "UNKNOWN")) |>
   janitor::clean_names()
 bakes = read_csv ("~/Desktop/p8105_hw2_akg2197/gbb_datasets 2/bakes.csv") |>
  janitor::clean_names()
-results = read_csv("~/Desktop/p8105_hw2_akg2197/gbb_datasets 2/results.csv", skip = 2) |>
+results = read_csv("~/Desktop/p8105_hw2_akg2197/gbb_datasets 2/results.csv", skip = 2), c("", "N/A", "Unknown", "UNKNOWN")) |>
  janitor::clean_names()
  
 bakers=
@@ -53,7 +53,19 @@ bakers=
 bakes = 
   bakes |> rename(baker = baker)
 
-# checking for discrepancies between datasets
 anti_join(bakers, bakes, by = c("series", "baker"))
 
+## merging
+bakeoff_df = bakes |>
+  full_join(results, bakes, by = c("series", "episode", "baker"))|> 
+   full_join(bakers, by = c("series", "baker") |> 
+
+head(bakeoff_df)
+
+bakeoff_df=
+  select(episode, series, baker, result, technical, results) |>
+
+write.csv(bakeoff_df, "bakeoff_clean_set.csv", row.names = FALSE)|>
+  
+head(bakeoff_df)
 ```

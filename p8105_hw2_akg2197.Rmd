@@ -14,16 +14,17 @@ library(tidyverse)
 
 ```{r}
 library(readxl)
-Trash_Wheel_Collection_Data <- read_excel("~/Downloads/202409 Trash Wheel Collection Data.xlsx", sheet = 1, range = "A2:N653")
+trashwheel_df <- read_excel("~/Downloads/202409 Trash Wheel Collection Data.xlsx", sheet = 1, range = "A2:N653")
 View(X202409_Trash_Wheel_Collection_Data)
 
-df=df |>
-  janitor::clean_names() |>
-  drop_na(Trash_Wheel_Collection_Data)
-
-df=df |>
+trashwheel_df=trashwheel_df |>
   janitor::clean_names()|>
   drop_na(dumpster)
+
+trashwheel_df |>
+  janitor::clean_names() |>
+  pull(sports_balls) |>
+  as.integer()
 ```
 ## Problem 3 
 ```{r}

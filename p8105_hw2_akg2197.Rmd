@@ -4,11 +4,39 @@ author: "Annie Gorman"
 date: "2024-09-29"
 output: github_document
 ---
+```{r setup}
+library(tidyverse)
+```
 
 ## Problem 1
 
 ## Problem 2
+
+```{r}
 library(readxl)
-X202409_Trash_Wheel_Collection_Data <- read_excel("~/Downloads/202409 Trash Wheel Collection Data.xlsx")
+Trash_Wheel_Collection_Data <- read_excel("~/Downloads/202409 Trash Wheel Collection Data.xlsx", sheet = 1, range = "A2:N653")
 View(X202409_Trash_Wheel_Collection_Data)
+
+df=df |>
+  janitor::clean_names() |>
+  drop_na(Trash_Wheel_Collection_Data)
+
+df=df |>
+  janitor::clean_names()|>
+  drop_na(dumpster)
+```
+## Problem 3 
+```{r}
+bakers = read_csv("bakers.csv")
+bakes = read_csv ("bakes.csv")
+results = read_csv("results.csv")
+```
+bakers=
+  bakers |> rename(baker = 'Baker Name')
+bakes = 
+  bakes |> rename(baker = 'Baker')
+
+results = results |>
+  rename(series = `...1`, episode = `...2`, )
+
 

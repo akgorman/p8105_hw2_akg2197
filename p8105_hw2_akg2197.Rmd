@@ -39,7 +39,7 @@ gwynnda_df=gwynnda_df |>
 
 dplyr:::left_join.data.frame(trashwheel_df, proftrashwheel_df, gwynnda_df, by = "volume_cubic_yards")
 ```
-The dataset has `r nrow(df) observations. The total weight of trash was 
+The dataset has `r nrow(df) observations.
 ```
 ## Problem 3 
 ```{r}

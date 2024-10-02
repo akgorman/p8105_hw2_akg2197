@@ -15,7 +15,6 @@ library(tidyverse)
 ```{r}
 library(readxl)
 trashwheel_df <- read_excel("~/Downloads/202409 Trash Wheel Collection Data.xlsx", sheet = 1, range = "A2:N653")
-View(X202409_Trash_Wheel_Collection_Data)
 
 trashwheel_df=trashwheel_df |>
   janitor::clean_names()|>
@@ -27,17 +26,6 @@ trashwheel_df |>
   as.integer()
 ```
 ## Problem 3 
-```{r}
-bakers = read_csv("bakers.csv")
-bakes = read_csv ("bakes.csv")
-results = read_csv("results.csv")
-```
-bakers=
-  bakers |> rename(baker = 'Baker Name')
-bakes = 
-  bakes |> rename(baker = 'Baker')
 
-results = results |>
-  rename(series = `...1`, episode = `...2`, )
 
 

@@ -20,10 +20,23 @@ trashwheel_df=trashwheel_df |>
   janitor::clean_names()|>
   drop_na(dumpster)
 
-trashwheel_df |>
-  janitor::clean_names() |>
-  pull(sports_balls) |>
-  as.integer()
+trashwheel_df = trashwheel_df |>
+  mutate(sports_balls = as.integer(sports_balls))
+
+library(readxl)
+proftrashwheel_df <- read_excel("~/Downloads/202409 Trash Wheel Collection Data.xlsx", sheet = 2, range = "A2:M121")
+
+proftrashwheel_df=proftrashwheel_df |>
+  janitor::clean_names()|>
+  drop_na(dumpster)
+
+library(readxl)
+gwynnda_df <- read_excel("~/Downloads/202409 Trash Wheel Collection Data.xlsx", sheet = 4, range = "A2:L265")
+
+gwynnda_df=gwynnda_df |>
+  janitor::clean_names()|>
+  drop_na(dumpster)
+
 ```
 ## Problem 3 
 

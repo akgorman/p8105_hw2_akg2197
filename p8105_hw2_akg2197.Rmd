@@ -56,9 +56,9 @@ bakes =
 anti_join(bakers, bakes, by = c("series", "baker"))
 
 ## merging
-bakeoff_df = bakes |>
+bakeoff_df =
   full_join(results, bakes, by = c("series", "episode", "baker"))|> 
-   full_join(bakers, by = c("series", "baker") |> 
+  full_join(bakers, by = c("series", "baker")
 
 head(bakeoff_df)
 
@@ -66,6 +66,15 @@ bakeoff_df=
   select(episode, series, baker, result, technical, results) |>
 
 write.csv(bakeoff_df, "bakeoff_clean_set.csv", row.names = FALSE)|>
-  
-head(bakeoff_df)
+```
+
+In the cleaning of my data, I have shown the series, bakers and their signature dishes, episode, and "show stoppers." Renaming bakers and bakes was necessary in merging the datasets. The dataset is `r nrow(bakeoff_df)` and `r ncol(bakeoff_df)`.
+
+star_baker_df = bakeoff_df |>
+  filter(series >=5, results %in% c("STAR BAKER", "WINNER")) |>
+  select(series, episode, baker)
+
+head(star_baker_df)
+
+colnames(results)
 ```

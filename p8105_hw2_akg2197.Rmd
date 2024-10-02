@@ -53,9 +53,7 @@ bakers=
 bakes = 
   bakes |> rename(baker = baker)
 
-results = results |>
-select(series, episode, baker, technical, result) |>
+# checking for discrepancies between datasets
+anti_join(bakers, bakes, by = c("series", "baker"))
 
-anti_join(bakes, bakers, by = c("Baker", "Baker Name"))
-anti_join(results, bakers, by = c("Baker", "Series))
 ```

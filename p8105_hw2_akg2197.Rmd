@@ -43,6 +43,7 @@ The dataset has `r nrow(df) observations.
 ```
 ## Problem 3 
 ```{r}
+<<<<<<< HEAD
 bakers = read_csv ("~/Desktop/p8105_hw2_akg2197/gbb_datasets 2/bakers.csv", na =c("", "N/A", "Unknown", "UNKNOWN")) |>
   janitor::clean_names()
 bakes = read_csv ("~/Desktop/p8105_hw2_akg2197/gbb_datasets 2/bakes.csv") |>
@@ -84,3 +85,22 @@ colnames(bakes)
 colnames(bakers)
 ```
 The predictable winner was Jo. Jo was the overall winner with no other surprises in seasons 5-10. 
+=======
+bakers = read_csv ("~/Desktop/p8105_hw2_akg2197/gbb_datasets 2/bakers.csv")
+bakes = read_csv ("~/Desktop/p8105_hw2_akg2197/gbb_datasets 2/bakes.csv")
+results = read_csv("~/Desktop/p8105_hw2_akg2197/gbb_datasets 2/results.csv")
+```
+bakers=
+  bakers |> rename(baker = 'Baker Name')
+bakes = 
+  bakes |> rename(baker = 'Baker')
+
+results = results |>
+  rename(series = `...1`, episode = `...2`, baker = `...3`, technical = `...4`, result = `IN = stayed in; OUT = Eliminated; STAR BAKER = Star Baker; WINNER = Series Winner; Runner-Up = Series Runner Up; WD = Withdrew` )
+
+results = results |>
+select(series, episode, baker, technical, result)
+
+anti_join(bakes, bakers, by = c("Baker", "Baker Name"))
+anti_join(results, bakers, by = c("Baker", "Series))
+>>>>>>> af3ea8297f5757a0d887b222da09686c50a9c9f3

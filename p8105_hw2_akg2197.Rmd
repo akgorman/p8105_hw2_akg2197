@@ -40,6 +40,21 @@ gwynnda_df=gwynnda_df |>
 dplyr:::left_join.data.frame(trashwheel_df, proftrashwheel_df, gwynnda_df, by = "volume_cubic_yards")
 ```
 ## Problem 3 
+```{r}
+bakers = read_csv ("~/Desktop/p8105_hw2_akg2197/gbb_datasets 2/bakers.csv")
+bakes = read_csv ("~/Desktop/p8105_hw2_akg2197/gbb_datasets 2/bakes.csv")
+results = read_csv("~/Desktop/p8105_hw2_akg2197/gbb_datasets 2/results.csv")
+```
+bakers=
+  bakers |> rename(baker = 'Baker Name')
+bakes = 
+  bakes |> rename(baker = 'Baker')
 
+results = results |>
+  rename(series = `...1`, episode = `...2`, baker = `...3`, technical = `...4`, result = `IN = stayed in; OUT = Eliminated; STAR BAKER = Star Baker; WINNER = Series Winner; Runner-Up = Series Runner Up; WD = Withdrew` )
 
+results = results |>
+select(series, episode, baker, technical, result)
 
+anti_join(bakes, bakers, by = c("Baker", "Baker Name"))
+anti_join(results, bakers, by = c("Baker", "Series))
